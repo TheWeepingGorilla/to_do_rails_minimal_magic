@@ -15,7 +15,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(params[:task])
+    @task = Task.create(:name => params[:name],
+                        :done => false)
     if @task.save
       render('tasks/success.html.erb')
     else
